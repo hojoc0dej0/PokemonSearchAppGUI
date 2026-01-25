@@ -1,18 +1,41 @@
 # PokemonSearchAppGUI
-A JavaScript project utilizing API fetches and Advanced regex functions
-<section>
-  <h1>Pokemon Search App</h1>
-  <p>Created  by the freeCodeCamp & codej0h0j0 collaboration</p>
-</section>
-<section>
-  <h2>Find out about your favorite Pokemon <a href="">here!</a></h2>
-  <p>Hey Trainers!! Here you can have your very own Pokedex at your disposal! Just enter any Pokemon in the search bar, and reveal their stats, such as their type, height, weight, and more! Identify any Pokemon you catch or just update your knowledge!</p>
-</section>
-<section>
-  <p> This is one of the main projects I used to gain a certificate in JavaScript Algorithms and Data Structures. In this interactive project, I utilize the following skills:</p>
-  <ul>
-    <li>Dynamic Data Retrieval: Using Asynchronous JavaScript to fetch API data</li>
-    <li>User Interface Updates: Adding dynamic functionality to the DOM for each user request</li>
-    <li>Input Validation & Error Handling: Using advanced regex to filter out invalid Pokemon names and prompt users to correct their input/li>
-  </ul>
-</section>
+
+🔗 **Live Demo:** https://h0j0codej0.github.io/PokemonSearchAppGUI/
+
+A JavaScript project utilizing API fetches and advanced regex functions.
+
+## Pokémon Search App
+
+Created as part of the freeCodeCamp JavaScript Algorithms and Data Structures curriculum.
+
+This interactive Pokédex allows users to search for any Pokémon by name or ID and instantly view detailed stats including:
+- Type
+- Height
+- Weight
+- Base stats (HP, Attack, Defense, etc.)
+
+## Features
+- Real-time Pokémon search using an external API
+- Keyboard (Enter key) support
+- Input validation with regex
+- Inline error handling (no alert popups)
+- Dynamic DOM updates for each search
+
+## Technologies Used
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES6+)
+- Fetch API
+- Regular Expressions
+
+## What I Learned
+- Asynchronous JavaScript and API integration
+- Dynamic UI rendering and DOM manipulation
+- Client-side input validation and error handling
+- Structuring a clean, user-friendly interface
+
+---
+
+## Author
+**Hurley Jones**  
+GitHub: https://github.com/h0j0codej0  
