@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+ <html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Search App</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Pokémon Search</h1>
-    <div id="pokemon-sprites">
-  </div>    
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pokémon Search</h1>
+      
+      <div id="pokemon-sprites">
+      </div>
+      
       <input type="text" id="search-input" placeholder="Enter Pokémon name or ID" required>
       <button id="search-button">Search</button>
+      <p id="status-message" aria-live="polite"></p>
     </div>
+    
     <div id="pokemon-info">
       <h2 id="pokemon-name"></h2>
       <p>ID: <span id="pokemon-id"></span></p>
@@ -28,5 +32,5 @@
       <p>Speed: <span id="speed"></span></p>
     </div>
     <script src="script.js"></script>
-</body>
-</html>
+  </body>
+ </html>
