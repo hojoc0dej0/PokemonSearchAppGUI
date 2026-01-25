@@ -1,0 +1,133 @@
+body {
+    font-family: 'Pokemon Solid', Arial, sans-serif;
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffffff;
+}
+
+.container {
+    background: #f1f1f1;
+    width: 320px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before, .container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e2e2e2;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.container::before {
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+}
+
+.container::after {
+    top: -8px;
+    left: -8px;
+    z-index: -2;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffcb05;
+    color: #3b4cca;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffb300;
+}
+
+#pokemon-info {
+    margin-top: 40px;
+    margin-left: 20px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#pokemon-info h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+#pokemon-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+#pokemon-sprites {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#pokemon-sprites img {
+    margin-top: 20px;
+    width: 160px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#pokemon-sprites img:hover {
+    transform: scale(1.1);
+}
+
+#types {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#types div {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: #efefef;
+    color: #333;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
