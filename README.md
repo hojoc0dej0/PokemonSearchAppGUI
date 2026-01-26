@@ -1,6 +1,6 @@
 # PokemonSearchAppGUI
 
-🔗 **Live Demo:** https://h0j0codej0.github.io/PokemonSearchAppGUI/
+🔗 **Live Demo:** https://hojoc0dej0.github.io/PokemonSearchAppGUI/
 
 A JavaScript project utilizing API fetches and advanced regex functions.
 
