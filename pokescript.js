@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const searchButton = document.getElementById('search-button');
+  let isLoading = false;
   const searchInput = document.getElementById('search-input');
   const statusMessage = document.getElementById('status-message');
 
@@ -13,6 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     statusMessage.textContent = '';
     statusMessage.className = '';
   }
+
+  function setLoading(isBusy) {
+    isLoading = isBusy;
+    searchButton.disabled = isBusy;
+    searchInput.disabled = isBusy;
+
+    const spinner = searchButton.querySelector('.spinner');
+    const label = searchButton.querySelector('.btn-label');
+
+    if (spinner && label) {
+      spinner.hidden = !isBusy;
+      label.textContent = isBusy ? 'Loading...' : 'Search';
+    }
+  };
 
   // Keep this proxy-friendly (it expects slugs like "mr-mime")
   // Also allow spaces/dots/apostrophes from user input.
@@ -55,83 +70,56 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function fetchPokemon(query) {
+    if (isLoading) return;
+    
     const apiUrl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${query}`;
 
     try {
+      setLoading(true);
+      clearAllData();
+  
       const response = await fetch(apiUrl);
-      if (!response.ok) throw new Error('Pokémon not found');
+      if (!response.ok) {
+        throw new Error('Pokémon not found');
+      }
 
       const data = await response.json();
-
-      // Pretty name (Mr. Mime, Farfetch’d, etc.)
       const displayName = await getEnglishDisplayName(data);
-
       displayPokemonData(data, displayName);
+    
     } catch (error) {
       clearAllData();
       showError(error.message);
+    } finally {
+      setLoading(false);
     }
   }
-
-  // Type color map
-  const typeColors = {
-    normal: '#A8A77A',
-    fire: '#EE8130',
-    water: '#6390F0',
-    electric: '#F7D02C',
-    grass: '#7AC74C',
-    ice: '#96D9D6',
-    fighting: '#C22E28',
-    poison: '#A33EA1',
-    ground: '#E2BF65',
-    flying: '#A98FF3',
-    psychic: '#F95587',
-    bug: '#A6B91A',
-    rock: '#B6A136',
-    ghost: '#735797',
-    dragon: '#6F35FC',
-    dark: '#705746',
-    steel: '#B7B7CE',
-    fairy: '#D685AD'
-  };
-
+  
   function displayPokemonData(data, displayName) {
     clearStatus();
 
-    // ✅ FIX: prevent infinite type stacking
     const typesElement = document.getElementById('types');
     typesElement.innerHTML = '';
 
-    // ✅ Name: display correctly
     document.getElementById('pokemon-name').textContent = displayName;
-
     document.getElementById('pokemon-id').textContent = data.id;
 
-    // ✅ Units: proxy uses same units as PokéAPI (hectograms & decimeters)
-    // Convert to kg/m
     const weightKg = (data.weight / 10).toFixed(1);
     const heightM = (data.height / 10).toFixed(1);
 
     document.getElementById('weight').textContent = `${weightKg} kg`;
     document.getElementById('height').textContent = `${heightM} m`;
 
-    // ✅ Types: color coded + readable casing
     data.types.forEach(typeInfo => {
-      const typeName = typeInfo.type.name; // e.g., "water"
+      const typeName = typeInfo.type.name; 
       const typeElement = document.createElement('div');
 
       typeElement.textContent = typeName.toUpperCase();
-      typeElement.style.backgroundColor = typeColors[typeName] || '#999';
-      typeElement.style.padding = '0.35rem 0.65rem';
-      typeElement.style.borderRadius = '999px';
-      typeElement.style.display = 'inline-block';
-      typeElement.style.margin = '0 0.35rem 0.35rem 0';
-      typeElement.style.fontWeight = '800';
-
+      typeElement.className = `type-chip type-${typeName}`;
+      
       typesElement.appendChild(typeElement);
     });
 
-    // Stats
     document.getElementById('hp').textContent =
       data.stats.find(stat => stat.stat.name === 'hp').base_stat;
     document.getElementById('attack').textContent =
@@ -186,4 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       runSearch();
     }
   });
+
+  searchInput.addEventListener('input', clearStatus);
 });
+
