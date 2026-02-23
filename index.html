@@ -14,9 +14,12 @@
       
       <div id="pokemon-sprites">
       </div>
-      
+
+	  <label for="search-input" class="visually-hidden">Search Pokémon by name or ID</label>
       <input type="text" name="search-input" id="search-input" placeholder="Enter Pokémon name or ID" required>
-      <button id="search-button">Search</button>
+      <button id="search-button" type="button">
+	  <span class="spinner" hidden aria-hidden="true"></span>
+	  <span class="btn-label">Search</span></button>
       <p id="status-message" aria-live="polite"></p>
     </div>
     
@@ -25,7 +28,10 @@
       <p>ID: <span id="pokemon-id"></span></p>
       <p>Weight: <span id="weight"></span></p>
       <p>Height: <span id="height"></span></p>
-      <p>Types: <span id="types"></span></p>
+      <div class="types-row">
+		  <span class="label">Types:</span>
+		  <div id="types" class="types"></div>
+	  </div>
       <p>HP: <span id="hp"></span></p>
       <p>Attack: <span id="attack"></span></p>
       <p>Defense: <span id="defense"></span></p>
