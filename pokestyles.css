@@ -132,8 +132,37 @@ button:hover {
 
 }
 
+.type-chip {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  margin: 0 0.35rem 0.35rem 0;
+  font-weight: 800;
+  color: #111;
+  font-size: 0.85rem;
+}
+
+/* Type Colors */
+.type-normal { background: #A8A77A; }
+.type-fire { background: #EE8130; }
+.type-water { background: #6390F0; }
+.type-electric { background: #F7D02C; }
+.type-grass { background: #7AC74C; }
+.type-ice { background: #96D9D6; }
+.type-fighting { background: #C22E28; }
+.type-poison { background: #A33EA1; }
+.type-ground { background: #E2BF65; }
+.type-flying { background: #A98FF3; }
+.type-psychic { background: #F95587; }
+.type-bug { background: #A6B91A; }
+.type-rock { background: #B6A136; }
+.type-ghost { background: #735797; }
+.type-dragon { background: #6F35FC; }
+.type-dark { background: #705746; }
+.type-steel { background: #B7B7CE; }
+.type-fairy { background: #D685AD; }
 .page {
-  flex: 1;                 /* pushes footer down */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,7 +171,6 @@ button:hover {
   flex-wrap: wrap;
 }
 
-/* Portfolio-style footer */
 .site-footer {
   padding: 2rem 1rem;
   background: #000;
@@ -180,5 +208,6 @@ button:hover {
   margin-top: 10px;
   text-align: center;
 }
+
 
 
